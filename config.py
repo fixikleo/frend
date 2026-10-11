@@ -1,12 +1,14 @@
-# ============ НАСТРОЙКИ ============
-BOT_TOKEN = '8277048733:AAHTrdpUFsUW0Q7fS8U9GkxI_As55xR1B_U'          # Токен от @BotFather
-CHANNEL_ID = -1004395430313          # Куда публиковать (ID или @username)
-ADMIN_USERNAME = 'fixikleo'           # Единственный админ (без @)
+import os
+
+# ============ НАСТРОЙКИ (из переменных среды) ============
+BOT_TOKEN = os.environ.get('BOT_TOKEN', 'ЗАПОЛНИ_В_ПЕРЕМЕННЫХ_СРЕДЫ')
+CHANNEL_ID = int(os.environ.get('CHANNEL_ID', '0'))
+ADMIN_USERNAME = 'fixikleo'          # без @
+ADMIN_ID = int(os.environ.get('ADMIN_ID', '0')) or None
 
 # ============ СВЕЖЕСТЬ НОВОСТЕЙ ============
-MAX_NEWS_AGE_HOURS = 12    # Игнорировать новости старше N часов
-MAX_LOOKBACK_ENTRIES = 30  # Сколько записей смотреть в каждой RSS-ленте
-
+MAX_NEWS_AGE_HOURS = 12
+MAX_LOOKBACK_ENTRIES = 30
 # ============ ТЕМЫ И RSS-ЛЕНТЫ ============
 TOPICS = {
     'gaming': {
